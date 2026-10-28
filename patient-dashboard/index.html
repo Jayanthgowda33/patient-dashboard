@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech.Care | Patient Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="Tech.Care home">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#01F0D0"/><path d="M8 14h3l2-5 3 10 2-5h2" fill="none" stroke="#072635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Tech.Care</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#">Overview</a>
+      <a href="#" class="is-active" aria-current="page">Patients</a>
+      <a href="#">Schedule</a>
+      <a href="#">Message</a>
+      <a href="#">Transactions</a>
+    </nav>
+
+    <div class="topbar__user">
+      <div class="avatar avatar--sm" aria-hidden="true">JS</div>
+      <div class="topbar__user-text">
+        <strong>Dr. Jose Simmons</strong>
+        <span>General Practitioner</span>
+      </div>
+      <span class="topbar__icon" aria-hidden="true">⚙</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="card patients" aria-label="Patients">
+      <div class="card__head">
+        <h2>Patients</h2>
+        <span aria-hidden="true">⌕</span>
+      </div>
+      <ul id="patient-list" class="patients__list"></ul>
+    </aside>
+
+    <section class="center" aria-label="Diagnosis">
+      <div class="card" id="history-card">
+        <h2>Diagnosis History</h2>
+        <div class="bp-panel">
+          <div class="bp-chart">
+            <div class="bp-chart__head">
+              <h3>Blood Pressure</h3>
+              <span class="bp-chart__range">Last 6 months</span>
+            </div>
+            <div class="bp-chart__canvas"><canvas id="bp-chart" aria-label="Blood pressure chart" role="img"></canvas></div>
+          </div>
+          <div class="bp-legend" id="bp-legend"></div>
+        </div>
+
+        <div class="vitals" id="vitals"></div>
+      </div>
+
+      <div class="card">
+        <h2>Diagnostic List</h2>
+        <div class="table-wrap">
+          <table class="diag-table">
+            <thead><tr><th>Problem/Diagnosis</th><th>Description</th><th>Status</th></tr></thead>
+            <tbody id="diagnostic-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side" aria-label="Patient profile">
+      <div class="card profile" id="profile"></div>
+      <div class="card">
+        <h2>Lab Results</h2>
+        <ul class="labs" id="lab-results"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <p class="status" id="status" role="status" aria-live="polite">Loading patient data…</p>
+
+  <script src="vendor/chart.umd.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
